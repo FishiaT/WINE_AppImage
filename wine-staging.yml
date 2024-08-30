@@ -197,7 +197,9 @@ AppDir:
      sed -i '/modules_dir/d' AppDir/AppRun.config
 
   runtime:
-    version: v3.0.0-devel-2
+    env:
+      LIBGL_DRIVERS_PATH: '${APPDIR}/usr/lib/i386-linux-gnu/dri:${APPDIR}/usr/lib/x86_64-linux-gnu/dri:${LIBGL_DRIVERS_PATH}'
+      APPDIR_LIBC_VERSION: '2.38'
     path_mappings:
     - /opt/wine-staging:$APPDIR/opt/wine-staging
 

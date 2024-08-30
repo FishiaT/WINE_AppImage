@@ -38,7 +38,6 @@ AppDir:
         key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf63f0f2b90935439'
 
     include:
-      - wine-staging
       - bash
       - cabextract
       - dash

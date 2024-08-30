@@ -38,7 +38,7 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
+          name: wine-staging
           path: /home/runner/work/WINE_AppImage/WINE_AppImage/*.AppImage
 
   build-soda:
@@ -68,7 +68,7 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
+          name: soda
           path: /home/runner/work/WINE_AppImage/WINE_AppImage/*.AppImage
 
   build-kron4ek:
@@ -98,5 +98,5 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
+          name: kron4ek-tkg
           path: /home/runner/work/WINE_AppImage/WINE_AppImage/*.AppImage

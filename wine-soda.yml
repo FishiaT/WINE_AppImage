@@ -152,7 +152,7 @@ AppDir:
   after_bundle:
     - |
      # Patch wrapper script
-     sed -i 's|wine-appimage|wine-appimage-ge-proton|' AppDir/wrapper
+     sed -i 's|wine-appimage|wine-appimage-soda|' AppDir/wrapper
 
      WINE_VER="soda-9.0-1"
 

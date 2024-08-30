@@ -157,7 +157,7 @@ AppDir:
      WINE_VER="soda-9.0-1"
 
      wget -q "https://github.com/bottlesdevs/wine/releases/download/soda-9.0-1/soda-9.0-1-x86_64.tar.xz"
-     mkdir -p AppDir/opt ; (cd AppDir/opt ; tar -xf ../../*.tar.xz ; mv lutris* wine-staging ; rm ../../*.tar.xz)
+     mkdir -p AppDir/opt ; (cd AppDir/opt ; tar -xf ../../*.tar.xz ; mv soda* wine-staging ; rm ../../*.tar.xz)
      (cd AppDir/usr/bin; ln -s "../../opt/wine-staging/bin/"* .)
 
      # Cleanup

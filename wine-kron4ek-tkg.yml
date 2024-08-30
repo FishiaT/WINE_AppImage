@@ -152,12 +152,12 @@ AppDir:
   after_bundle:
     - |
      # Patch wrapper script
-     sed -i 's|wine-appimage|wine-appimage-ge-proton|' AppDir/wrapper
+     sed -i 's|wine-appimage|wine-appimage-kron4ek-tkg|' AppDir/wrapper
 
      WINE_VER="kron4ek-tkg-9.16"
 
      wget -q "https://github.com/Kron4ek/Wine-Builds/releases/download/9.16/wine-9.16-staging-tkg-amd64.tar.xz"
-     mkdir -p AppDir/opt ; (cd AppDir/opt ; tar -xf ../../*.tar.xz ; mv lutris* wine-staging ; rm ../../*.tar.xz)
+     mkdir -p AppDir/opt ; (cd AppDir/opt ; tar -xf ../../*.tar.xz ; mv wine-* wine-staging ; rm ../../*.tar.xz)
      (cd AppDir/usr/bin; ln -s "../../opt/wine-staging/bin/"* .)
 
      # Cleanup

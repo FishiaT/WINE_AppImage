@@ -38,8 +38,8 @@ AppDir:
         key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf63f0f2b90935439'
 
     include:
-      - wine-devel-i386=9.0~jammy-1
-      - wine-devel-amd64=9.0~jammy-1
+      - wine-staging:i386=9.16~jammy-1
+      - wine-staging:amd64=9.16~jammy-1
       - bash
       - cabextract
       - dash

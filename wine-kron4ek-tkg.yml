@@ -34,14 +34,12 @@ AppDir:
         key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x871920D1991BC93C'
       - sourceline: 'deb https://dl.winehq.org/wine-builds/ubuntu/ jammy main'
         key_url: 'https://dl.winehq.org/wine-builds/winehq.key'
-      # - sourceline: 'deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu/ jammy main'
-        # key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFCAE110B1118213C'
       - sourceline: 'deb https://ppa.launchpadcontent.net/kisak/kisak-mesa/ubuntu jammy main'
         key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf63f0f2b90935439'
 
     include:
-      - wine-devel-i386=7.22~jammy-1
-      - wine-devel-amd64=7.22~jammy-1
+      - wine-devel-i386=9.0~jammy-1
+      - wine-devel-amd64=9.0~jammy-1
       - bash
       - cabextract
       - dash
@@ -55,12 +53,6 @@ AppDir:
       - gstreamer1.0-plugins-good:i386
       - gstreamer1.0-plugins-bad:i386
       - gstreamer1.0-plugins-ugly:i386
-      # - libnvidia-compute-520:i386
-      # - libnvidia-decode-520:i386
-      # - libnvidia-encode-520:i386
-      # - libnvidia-extra-520:i386
-      # - libnvidia-fbc1-520:i386
-      # - libnvidia-gl-520:i386
       - libdrm2:i386
       - libdrm-intel1:i386
       - libdrm-nouveau2:i386
@@ -159,14 +151,13 @@ AppDir:
       - opt/wine-staging/lib64/wine/x86_64-windows/*.a
 
   after_bundle:
-    # this is executed after the packages and files are added
     - |
      # Patch wrapper script
      sed -i 's|wine-appimage|wine-appimage-ge-proton|' AppDir/wrapper
 
-     WINE_VER="$(wget -qO- "https://github.com/GloriousEggroll/wine-ge-custom/tags" | sed -r '/LoL/d' | grep -Eo "GE-P.*" | head -1 | sed -r 's|"| |g' | awk '{print $1}')"
+     WINE_VER="kron4ek-tkg-9.16"
 
-     wget -q "https://github.com/GloriousEggroll/wine-ge-custom/releases/download/$WINE_VER/wine-lutris-${WINE_VER}-x86_64.tar.xz"
+     wget -q "https://github.com/Kron4ek/Wine-Builds/releases/download/9.16/wine-9.16-staging-tkg-amd64.tar.xz"
      mkdir -p AppDir/opt ; (cd AppDir/opt ; tar -xf ../../*.tar.xz ; mv lutris* wine-staging ; rm ../../*.tar.xz)
      (cd AppDir/usr/bin; ln -s "../../opt/wine-staging/bin/"* .)
 
@@ -194,7 +185,6 @@ AppDir:
     - /opt/wine-staging:$APPDIR/opt/wine-staging
 
 AppImage:
-  update-information: gh-releases-zsync|mmtrt|WINE_AppImage|continuous-staging_ge_proton|wine-staging_ge-proton*.AppImage.zsync
   #sign-key: None
   arch: x86_64
 
